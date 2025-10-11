@@ -134,7 +134,7 @@ var testTmpl = `
 {{define "list" -}}
 <ul>
 {{range .Bullet -}}
-<li>{{style .}}</li>
+<li class="hideable hidden">{{style .}}</li>
 {{end -}}
 </ul>
 {{end}}

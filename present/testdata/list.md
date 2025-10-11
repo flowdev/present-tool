@@ -14,20 +14,20 @@
 <h1>List</h1>
 <section>
 <ul>
-<li>
+<li class="hideable hidden">
 <p>Item 1
 on two lines.</p>
 </li>
-<li>
+<li class="hideable hidden">
 <p>Item 2.</p>
 </li>
-<li>
+<li class="hideable hidden">
 <p>Item 3.</p>
 </li>
-<li>
+<li class="hideable hidden">
 <p>Item 4 in list despite preceding blank line.</p>
 </li>
-<li>
+<li class="hideable hidden">
 <p>Item 5.</p>
 </li>
 </ul>

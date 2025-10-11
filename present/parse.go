@@ -719,6 +719,8 @@ func fixupMarkdown(n ast.Node) {
 				n.SetAttributeString("target", []byte("_blank"))
 				// https://developers.google.com/web/tools/lighthouse/audits/noopener
 				n.SetAttributeString("rel", []byte("noopener"))
+			case *ast.ListItem:
+				n.SetAttributeString("class", []byte("hideable hidden"))
 			}
 		}
 		return ast.WalkContinue, nil

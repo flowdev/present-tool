@@ -169,9 +169,6 @@ function updateSlides() {
 
   for (var i = 0; i < slideEls.length; i++) {
     switch (i) {
-      case curSlide - 2:
-        updateSlideClass(i, 'far-past');
-        break;
       case curSlide - 1:
         updateSlideClass(i, 'past');
         break;
@@ -180,9 +177,6 @@ function updateSlides() {
         break;
       case curSlide + 1:
         updateSlideClass(i, 'next');
-        break;
-      case curSlide + 2:
-        updateSlideClass(i, 'far-next');
         break;
       default:
         updateSlideClass(i);
@@ -224,6 +218,16 @@ function nextSlide() {
   }
 
   if (notesEnabled) localStorage.setItem(destSlideKey(), curSlide);
+}
+
+function nextStep() {
+  var el = getSlideEl(curSlide);
+  hidden = el.getElementsByClassName('hideable hidden');
+  if (hidden.length > 0) {
+    hidden[0].classList.remove('hidden');
+  } else {
+    nextSlide();
+  }
 }
 
 /* Slide events */
@@ -297,7 +301,7 @@ function handleTouchEnd(event) {
     if (touchDX > 0) {
       prevSlide();
     } else {
-      nextSlide();
+      nextStep();
     }
   }
 
@@ -371,7 +375,7 @@ function setupInteraction() {
   var el = document.createElement('div');
   el.className = 'slide-area';
   el.id = 'next-slide-area';
-  el.addEventListener('click', nextSlide, false);
+  el.addEventListener('click', nextStep, false);
   document.querySelector('section.slides').appendChild(el);
 
   /* Swiping */
@@ -415,7 +419,7 @@ function handleBodyKeyDown(event) {
     case 32: // space
       if (inCode) break;
     case 34: // PgDn
-      nextSlide();
+      nextStep();
       event.preventDefault();
       break;
 

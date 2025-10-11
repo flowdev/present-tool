@@ -14,13 +14,13 @@ List
 <h1>List</h1>
 <section>
 <ul>
-<li>Item 1
+<li class="hideable hidden">Item 1
 on two lines.</li>
-<li>Item 2.</li>
-<li>Item 3.</li>
+<li class="hideable hidden">Item 2.</li>
+<li class="hideable hidden">Item 3.</li>
 </ul>
 <ul>
-<li>Item 1 in new list.</li>
-<li>Item 2.</li>
+<li class="hideable hidden">Item 1 in new list.</li>
+<li class="hideable hidden">Item 2.</li>
 </ul>
 </section>
