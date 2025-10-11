@@ -4,7 +4,7 @@
 
 var PERMANENT_URL_PREFIX = '/static/';
 
-var SLIDE_CLASSES = ['far-past', 'past', 'current', 'next', 'far-next'];
+var SLIDE_CLASSES = ['past', 'current', 'next'];
 
 var PM_TOUCH_SENSITIVITY = 15;
 
