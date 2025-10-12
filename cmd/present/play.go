@@ -13,7 +13,6 @@ import (
 	"time"
 
 	"golang.org/x/tools/playground/socket"
-	"golang.org/x/tools/present"
 
 	// This will register a handler at /compile that will proxy to the
 	// respective endpoints at play.golang.org. This allows the frontend to call
@@ -21,6 +20,8 @@ import (
 	// Note that this is imported regardless of whether the endpoints are used or
 	// not (in the case of a local socket connection, they are not called).
 	_ "golang.org/x/tools/playground"
+
+	"github.com/flowdev/present-tool/present"
 )
 
 var scripts = []string{"jquery.js", "jquery-ui.js", "playground.js", "play.js"}
