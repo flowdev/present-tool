@@ -132,6 +132,48 @@ if (
 }
 /* ---------------------------------------------------------------------- */
 
+function initThemeSwitcher() {
+    let darkModeEnabled = false;
+    let pref = localStorage.getItem('dark-mode');
+    let darkModeButton = document.getElementById('theme-switcher');
+    darkModeButton.classList.add('toggle-dark-mode');
+
+    darkModeButton.addEventListener('click', () => {
+        darkModeEnabled = !darkModeEnabled;
+        setClass();
+        localStorage.setItem('dark-mode', darkModeEnabled);
+    })
+
+    if (!pref) {
+        pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'true' : 'false';
+    }
+
+    if (pref) {
+        darkModeEnabled = pref === 'true';
+    }
+
+    let html = document.querySelector('html');
+
+    function setClass() {
+        if (darkModeEnabled) {
+            html.classList.add('dark-mode');
+        } else {
+            html.classList.remove('dark-mode');
+        }
+    }
+
+    setClass();
+}
+
+if (document.readyState === "loading") {
+  // Loading hasn't finished yet
+  document.addEventListener("DOMContentLoaded", initThemeSwitcher);
+} else {
+  // `DOMContentLoaded` has already fired
+  initThemeSwitcher();
+}
+
+/* ---------------------------------------------------------------------- */
 /* Slide movement */
 
 function hideHelpText() {

@@ -14,7 +14,7 @@
 
     overflow: hidden;
 
-    background: rgb(215, 215, 215);
+    background: var(--color-xg);
     background: -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
     background: -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
     background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
@@ -29,6 +29,28 @@
     );
 
     -webkit-font-smoothing: antialiased;
+  }
+
+  :root {
+    --color-red: #af3029;
+    --color-orange: #da702c;
+    --color-yellow: #d0a215;
+    --color-green: #66800b;
+    --color-blue2: #205ea6;
+    --color-blue: #4385be;
+
+    --color-bg-1: #fffcf0;
+    --color-bg-2: #f2f0e5;
+    --color-xg:   #878580;
+    --color-fg-1: #282726;
+    --color-fg-2: #100f0f;
+  }
+  :root.dark-mode {
+    --color-bg-1: #100f0f;
+    --color-bg-2: #282726;
+    --color-xg:   #878580;
+    --color-fg-1: #f2f0e5;
+    --color-fg-2: #fffcf0;
   }
 
   .hidden {
@@ -71,9 +93,9 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
 
-    background-color: white;
+    background-color: var(--color-bg-2);
 
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.5);
 
     transition: transform 0.3s ease-out;
     -o-transition: -o-transform 0.3s ease-out;
@@ -173,7 +195,7 @@
   }
 
   pre {
-    background: rgb(240, 240, 240);
+    background: var(--color-bg-1);
   }
 
   /* Add explicit links */
@@ -194,7 +216,7 @@
 .slides > article {
   font-family: 'Open Sans', Arial, sans-serif;
 
-  color: black;
+  color: var(--color-fg-2);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 
   font-size: 26px;
@@ -208,14 +230,14 @@ b {
 }
 
 a {
-  color: rgb(0, 102, 204);
+  color: var(--color-blue);
   text-decoration: none;
 }
 a:visited {
-  color: rgba(0, 102, 204, 0.75);
+  color: var(--color-blue2);
 }
 a:hover {
-  color: black;
+  color: var(--color-blue2);
 }
 
 p {
@@ -242,7 +264,7 @@ h1 {
 
   letter-spacing: -3px;
 
-  color: rgb(51, 51, 51);
+  color: var(--color-fg-2);
 }
 
 h2 {
@@ -260,7 +282,7 @@ h2 {
 
   letter-spacing: -2px;
 
-  color: rgb(51, 51, 51);
+  color: var(--color-fg-2);
 }
 
 h3 {
@@ -275,7 +297,7 @@ h3 {
 
   letter-spacing: -1px;
 
-  color: rgb(51, 51, 51);
+  color: var(--color-fg-2);
 }
 
 ul {
@@ -300,15 +322,15 @@ pre {
   margin-bottom: 20px;
   overflow: hidden;
 
-  background: rgb(240, 240, 240);
-  border: 1px solid rgb(224, 224, 224);
+  background: var(--color-bg-1);
+  border: 1px solid rgb(48, 48, 48); /* rgb(224, 224, 224); */
 
   font-family: 'Droid Sans Mono', 'Courier New', monospace;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -1px;
 
-  color: black;
+  color: var(--color-fg-1);
 }
 
 pre.numbers span:before {
@@ -321,7 +343,7 @@ code {
   font-size: 95%;
   font-family: 'Droid Sans Mono', 'Courier New', monospace;
 
-  color: black;
+  color: var(--color-fg-1);
 }
 
 pre code {
@@ -359,8 +381,15 @@ p.link {
   margin-left: 20px;
 }
 
+#theme-switcher {
+  color: var(--color-fg-2);
+  font-size: 125%;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
 .pagenumber {
-  color: #8c8c8c;
+  color: var(--color-xg);
   font-size: 75%;
   position: absolute;
   bottom: 0px;
@@ -380,7 +409,7 @@ div.output {
   top: 50%;
   right: 40px;
   bottom: 40px;
-  background: #202020;
+  background: var(--color-bg-1);
   padding: 5px 10px;
   z-index: 2;
 
@@ -400,15 +429,15 @@ div.output pre {
 }
 div.output .stdout,
 div.output pre {
-  color: #e6e6e6;
+  color: var(--color-fg-1);
 }
 div.output .stderr,
 div.output .error {
-  color: rgb(255, 200, 200);
+  color: var(--color-red);
 }
 div.output .system,
 div.output .exit {
-  color: rgb(255, 230, 120);
+  color: var(--color-orange);
 }
 .buttons {
   position: relative;
@@ -464,7 +493,7 @@ iframe {
   border: none;
 }
 figcaption {
-  color: #666;
+  color: var(--color-fg-1);
   text-align: center;
   font-size: 0.75em;
 }
@@ -472,8 +501,8 @@ figcaption {
 #help {
   font-family: 'Open Sans', Arial, sans-serif;
   text-align: center;
-  color: white;
-  background: #000;
+  color: var(--color-fg-1);
+  background: var(--color-bg-1);
   opacity: 0.5;
   position: fixed;
   bottom: 25px;
